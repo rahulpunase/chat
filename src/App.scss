@@ -1,0 +1,10 @@
+@import "./styles/mixin";
+.App {
+	text-align: center;
+}
+
+.App {
+	.header {
+		@include theme-aware('color', 'color-font');
+	}
+}

@@ -1,0 +1,40 @@
+.conversation-list-element {
+	border-radius: 4px;
+	background: #f0f2f6;
+	margin-bottom: 2px;
+	padding: 14px 10px;
+	box-sizing: border-box;
+
+	.container-elem {
+		display: flex;
+		flex-direction: row;
+
+		.pic {
+			width: 40px;
+			height: 40px;
+			background: red;
+			border-radius: 50%;
+			margin-right: 12px;
+			overflow: hidden;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.details {
+			text-align: left;
+			width: 75%;
+			.name {
+				font-family: Montserrat-SemiBold, 'Segoe UI', 'Roboto', serif;
+			}
+			.message {
+				font-size: 14px;
+			}
+		}
+
+		.time {
+			font-size: 14px;
+		}
+	}
+}

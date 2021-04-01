@@ -1,0 +1,78 @@
+@import "../../styles/mixin";
+
+.chat-n-information {
+	overflow: hidden;
+	height: 100%;
+
+	.header {
+		height: 65px;
+		font-size: 24px;
+		text-align: left;
+		padding: 8px 20px;
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		@include theme-aware('border-bottom', 'border');
+
+		.action-selected {
+			font-size: 32px;
+		}
+	}
+
+	.profile-section {
+		min-height: 200px;
+		padding: 0px 20px;
+		box-sizing: border-box;
+		margin-top: 16px;
+
+		.profile-central {
+			position: relative;
+
+			.setting-holder {
+				position: absolute;
+				display: flex;
+				flex-direction: row;
+				flex: 1;
+				top: 0;
+				width: 100%;
+				justify-content: flex-end;
+			}
+
+			.profile-pic-holder {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+
+				.profile-img {
+					height: 130px;
+					width: 130px;
+					background: red;
+					border-radius: 50%;
+					position: relative;
+
+					.status-circle {
+						width: 14px;
+						height: 14px;
+						border-radius: 50%;
+						background-color: greenyellow;
+						bottom: 16px;
+						position: absolute;
+						right: 9px;
+					}
+				}
+			}
+
+			.name {
+				padding-top: 6px;
+				font-size: 28px;
+			}
+		}
+	}
+
+	.conversation-list {
+		overflow-x: hidden;
+		overflow-y: scroll;
+		height: calc(100% - 281px);
+		flex: 1 0 auto;
+	}
+}

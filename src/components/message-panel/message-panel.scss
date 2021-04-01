@@ -1,0 +1,18 @@
+@import "../../styles/mixin";
+.message-panel {
+	width: 100%;
+	height: 100%;
+
+	.panel-header {
+		height: 60px;
+		@include theme-aware('border-bottom', 'border')
+	}
+	.messages-container {
+		width: 100%;
+		height: calc(100% - 60px);
+		overflow-x: hidden;
+		overflow-y: scroll;
+		display: flex;
+		flex-direction: column;
+	}
+}

@@ -1,0 +1,33 @@
+@font-face {
+	src: url("../src/assets/fonts/Montserrat/Montserrat-Light.ttf");
+	font-family: Montserrat-Light
+}
+
+@font-face {
+	src: url("../src/assets/fonts/Montserrat/Montserrat-SemiBold.ttf");
+	font-family: Montserrat-SemiBold
+}
+
+@font-face {
+	src: url("../src/assets/fonts/Nunito/Nunito-SemiBold.ttf");
+	font-family: Nunito-SemiBold
+}
+
+@font-face {
+	src: url("../src/assets/fonts/Nunito/Nunito-Regular.ttf");
+	font-family: Nunito-Regular
+}
+
+body {
+	margin: 0;
+	font-family: Montserrat-Light, 'Segoe UI', 'Roboto', 'Oxygen',
+	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+	sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+	monospace;
+}

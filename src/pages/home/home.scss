@@ -1,0 +1,56 @@
+@import "../../styles/mixin";
+@import "../../styles/variables/variable";
+
+.home-page {
+	width: 90%;
+	height: 90%;
+	@include theme-aware('background-color', 'background-home');
+	border-radius: $border-radius;
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+	padding: 8px 0;
+	box-sizing: border-box;
+
+	.home-container {
+		display: flex;
+		flex-direction: row;
+		height: 100%;
+
+		.control-panel-holder {
+			width: 80px;
+			@include theme-aware('border-right', 'border');
+
+			.border-container {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				box-sizing: border-box;
+
+				.icon {
+					min-height: 65px;
+				}
+
+				.cp-panel {
+					flex: 1 1;
+				}
+			}
+		}
+
+		.chat-n-information-container {
+			width: 20%;
+			padding: 0 4px;
+		}
+
+		.central-div {
+			width: 60%;
+			padding: 0 4px;
+
+			.messages-holder {
+				width: 100%;
+				height: 100%;
+				border-radius: 8px;
+				padding: 4px;
+				@include theme-aware('background-color', 'chat-central');
+			}
+		}
+	}
+}

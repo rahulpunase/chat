@@ -1,0 +1,23 @@
+@import "./variables/variable";
+$themes: (
+	light: (
+		background-color: $light-background-color,
+		background-home: $light-background-home,
+		hover-background: $light-primary,
+		border: $light-border,
+		chat-central: $light-chat-central-color,
+		message-bk-send: $light-send-message-bk,
+		message-shadow-send: $light-send-message-box-shadow,
+		message-bk-receive: $light-receive-message-bk,
+		message-shadow-receive: $light-receive-message-box-shadow
+	),
+	dark: (
+		background-color: $dark-background-color,
+		background-home: $dark-background-home,
+		hover-background: $light-primary,
+		border: $light-border,
+		chat-central: $dark-chat-central-color,
+		message-bk-send: $light-send-message-bk,
+		message-shadow-send: $light-send-message-box-shadow
+	)
+);
