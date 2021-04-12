@@ -1,6 +1,8 @@
 import React from 'react';
 import "./message-panel.scss";
+import '../../styles/_global.scss';
 import MessagesList from "./messages-list/messages-list.component";
+import MessageInput from "../message-input/message-input.component";
 
 const MessagePanel = () => {
 	return (
@@ -13,8 +15,11 @@ const MessagePanel = () => {
 					</div>
 				</div>
 			</div>
-			<div className="messages-container">
+			<div className="messages-container scrollable">
 				<MessagesList/>
+			</div>
+			<div className="message-input-container">
+				<MessageInput/>
 			</div>
 		</div>
 	)

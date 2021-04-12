@@ -1,23 +1,50 @@
 @import "./variables/variable";
+
 $themes: (
-	light: (
-		background-color: $light-background-color,
-		background-home: $light-background-home,
-		hover-background: $light-primary,
+	light-blue: (
+		primary: $l-b-primary,
+		primary-darker: $l-b-primary-dark,
+		background-color: $l-b-primary-80,
+		background-home: $l-b-white,
+		link: $l-b-primary-darker,
+		hover-background: $l-b-primary,
 		border: $light-border,
 		chat-central: $light-chat-central-color,
-		message-bk-send: $light-send-message-bk,
+		message-bk-send: $l-b-primary,
+		message-bk-send-dark: $light-send-message-dark-bk,
+		message-send-menu: linear-gradient(to right, $light-send-message-bk-tr 0%, $light-send-message-dark-bk 100%),
 		message-shadow-send: $light-send-message-box-shadow,
 		message-bk-receive: $light-receive-message-bk,
-		message-shadow-receive: $light-receive-message-box-shadow
+		message-shadow-receive: $light-receive-message-box-shadow,
+		font: $light-font-color,
+		message-border-rec-top: $light-message-border-rec-top,
+		message-border-rec-left: $light-message-border-rec-left,
+		message-border-send-right: $light-message-border-send-right,
+		message-border-send-top: $light-message-border-send-top,
+	),
+	light-green: (
+		primary: $l-g-primary,
+		primary-darker: $l-g-primary-dark,
+		background-color: $l-g-primary-80,
+		background-home: $l-g-white,
+		link: $l-g-primary-darker,
 	),
 	dark: (
 		background-color: $dark-background-color,
 		background-home: $dark-background-home,
-		hover-background: $light-primary,
-		border: $light-border,
+		hover-background: $dark-primary,
+		border: $dark-border,
 		chat-central: $dark-chat-central-color,
-		message-bk-send: $light-send-message-bk,
-		message-shadow-send: $light-send-message-box-shadow
+		message-bk-send: $dark-send-message-bk,
+		message-bk-send-dark: $dark-send-message-dark-bk,
+		message-send-menu: linear-gradient(to right, $dark-send-message-bk-tr 0%, $dark-send-message-dark-bk 100%),
+		message-shadow-send: $dark-send-message-box-shadow,
+		message-bk-receive: $dark-receive-message-bk,
+		message-shadow-receive: $dark-receive-message-box-shadow,
+		font: $dark-font-color,
+		message-border-rec-top: $dark-message-border-rec-top,
+		message-border-rec-left: $dark-message-border-rec-left,
+		message-border-send-right: $dark-message-border-send-right,
+		message-border-send-top: $dark-message-border-send-top,
 	)
 );

@@ -1,7 +1,8 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCog, faUsers} from '@fortawesome/free-solid-svg-icons'
+import {faCog, faUsers} from '@fortawesome/free-solid-svg-icons';
 import "./chat-n-information.scss";
+import '../../styles/_global.scss';
 import ConversationList from "../conversation-list/conversation-list.component";
 import SearchInConversation from "../conversation-list/search-in-conversation/search-in-conversation.component";
 
@@ -10,15 +11,15 @@ const ChatNInformation = () => {
 		<div className="chat-n-information">
 			<div className="header">
 				<span>
-					<FontAwesomeIcon color={'#313131'} size="lg" icon={faUsers}/>
-					<span className="action-selected">People</span>
+					<FontAwesomeIcon className="theme-font" size="lg" icon={faUsers}/>
+					<span className="action-selected theme-font">People</span>
 				</span>
 			</div>
 			<div className="profile-section">
 				<div className="profile-central">
-					<div className="setting-holder">
+					<div className="setting-holder gbl-menu-button">
 						<button>
-							<FontAwesomeIcon color={'#313131'} size="sm" icon={faCog}/>
+							<FontAwesomeIcon className="theme-font" size="sm" icon={faCog}/>
 						</button>
 					</div>
 					<div className="profile-pic-holder">
@@ -27,7 +28,7 @@ const ChatNInformation = () => {
 							<img src="" alt=""/>
 						</div>
 					</div>
-					<div className="name">
+					<div className="name theme-font">
 						<span>Rahul Punase</span>
 					</div>
 				</div>
@@ -35,7 +36,7 @@ const ChatNInformation = () => {
 			<div className="conversation-search">
 				<SearchInConversation/>
 			</div>
-			<div className="conversation-list">
+			<div className="conversation-list scrollable">
 				<ConversationList/>
 			</div>
 		</div>

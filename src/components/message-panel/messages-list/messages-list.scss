@@ -1,8 +1,10 @@
 @import "../../../styles/mixin";
+@import "../../../styles/variables/variable";
 
 .message-list-component {
 	width: 100%;
 	margin-top: 6px;
+	padding: 4px 0;
 
 	.ac-message {
 		display: flex;
@@ -22,12 +24,27 @@
 				width: 0;
 			}
 
-			.message-text {
-				padding: 8px;
+			.message-content {
 				border-radius: 8px;
-				box-sizing: border-box;
 				margin-bottom: 2px;
-				font-family: Nunito-Regular, 'Segoe UI', 'Roboto', serif;
+				padding: 8px;
+				box-sizing: border-box;
+				display: flex;
+				position: relative;
+				overflow: hidden;
+
+				.message-text {
+					font-family: Nunito-Regular, 'Segoe UI', 'Roboto', serif;
+					padding-right: 8px;
+				}
+				.menu {
+					position: absolute;
+					right: 0;
+					z-index: 1;
+					top: 0;
+					height: 100%;
+					opacity: 0;
+				}
 			}
 
 			.time {
@@ -36,6 +53,12 @@
 				font-family: Montserrat-SemiBold, 'Segoe UI', 'Roboto', serif;
 				padding-right: 4px;
 			}
+
+			&:hover {
+				.menu {
+					opacity: 1;
+				}
+			}
 		}
 
 		&.right-sent-message {
@@ -43,14 +66,21 @@
 			padding-right: 20px;
 
 			.content {
-				.message-text {
+				.message-content {
 					@include theme-aware('background-color', 'message-bk-send');
+
+					.message-text {
+
+					}
+					.menu {
+						@include theme-aware('background', 'message-send-menu');
+					}
 				}
 
 				&::after {
-					border-top: 18px solid #dedddd;
-					border-right: 10px solid transparent;
-					border-left: 5px solid #dedddd;
+					@include theme-aware('border-left', 'message-border-send-left');
+					border-right: 16px solid transparent;
+					@include theme-aware('border-top', 'message-border-send-top');
 					right: -9px;
 				}
 			}
@@ -61,14 +91,21 @@
 			padding-left: 20px;
 
 			.content {
-				.message-text {
+				.message-content {
 					@include theme-aware('background-color', 'message-bk-receive');
+
+					.message-text {
+
+					}
+					.menu {
+						background: linear-gradient(to right, transparent -88%, #fff 60%);
+					}
 				}
 
 				&::after {
-					border-top: 18px solid #fff;
-					border-left: 10px solid transparent;
-					border-right: 5px solid #fff;
+					@include theme-aware('border-top', 'message-border-rec-top');
+					border-left: 16px solid transparent;
+					@include theme-aware('border-right', 'message-border-rec-right');
 					left: -9px;
 				}
 			}

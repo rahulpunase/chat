@@ -10,6 +10,18 @@ const utilMethods = {
 		} else {
 			return string;
 		}
+	},
+	nullCheck: (object, arrayOfKeysToIgnore) => {
+		const keys = Object.keys(object);
+		const nullKeys = [];
+		keys.forEach((key, index) => {
+			if (arrayOfKeysToIgnore) {
+				!arrayOfKeysToIgnore.includes(key) && (object[key] || nullKeys.push(key))
+			} else {
+				object[key] || nullKeys.push(key);
+			}
+		});
+		return nullKeys;
 	}
 }
 

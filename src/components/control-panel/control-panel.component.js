@@ -1,5 +1,6 @@
 import React from 'react';
 import './control-panel.scss';
+import '../../styles/_global.scss';
 import {motion} from 'framer-motion';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faGlobe, faUsers, faEye, faPhone } from '@fortawesome/free-solid-svg-icons'
@@ -30,7 +31,7 @@ const ControlPanel = () => {
 						scale: 1.2
 					}}>
 						<div className="content" title={action.name}>
-							<FontAwesomeIcon color={'#313131'} size="lg" icon={action.icon}/>
+							<FontAwesomeIcon className="theme-font" size="lg" icon={action.icon}/>
 						</div>
 					</motion.div>))
 				}

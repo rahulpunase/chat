@@ -1,0 +1,53 @@
+@import "../../styles/mixin";
+
+.message-input-component {
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+
+	.m-i-container {
+		width: 100%;
+		height: 100%;
+		background-color: #fff;
+		border-radius: 10px;
+		display: flex;
+
+		.m-i-centralize {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			width: 100%;
+			padding: 10px 0px;
+
+			.c-p-panel {
+				padding-right: 6px;
+				padding-left: 6px;
+				box-sizing: border-box;
+
+				&.button-holder {
+					width: 60px;
+					height: 100%;
+					align-items: center;
+					justify-content: center;
+					display: flex;
+				}
+
+				&.msg-input-textarea {
+					width: 60%;
+
+					textarea {
+						width: 100%;
+						resize: none;
+						outline: none;
+						padding: 4px 4px 4px 10px;
+						font-family: Montserrat-SemiBold, 'Segoe UI', 'Roboto', serif;
+						@include theme-aware('color', 'font');
+						border: none;
+						font-size: 14px;
+					}
+				}
+			}
+		}
+	}
+}

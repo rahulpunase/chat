@@ -1,0 +1,52 @@
+@import "mixin";
+
+@import "~bootstrap/scss/bootstrap";
+@import "theming";
+
+/* width */
+.scrollable::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+.scrollable::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+/* Handle */
+.scrollable::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+.scrollable::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+.gbl-ch-button {
+	padding: 10px;
+	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	outline: none;
+
+	&:hover {
+		background: #555555;
+	}
+}
+
+.gbl-menu-button {
+	border: none;
+	cursor: pointer;
+	outline: none;
+	background: transparent;
+}
+
+.gbl-font-bold {
+	font-family: Montserrat-SemiBold, 'Segoe UI', 'Roboto', serif;
+}
+
+.gbl-link-button {
+
+}

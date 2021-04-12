@@ -1,0 +1,17 @@
+@import "mixin";
+
+.theme-font {
+	@include theme-aware('color', 'font');
+}
+
+.btn.btn-primary {
+	@include theme-aware('background-color', 'primary');
+	@include theme-aware('border-color', 'primary-darker');
+	&:active {
+		@include theme-aware('background-color', 'primary-darker');
+		@include theme-aware('border-color', 'primary-darker');
+	}
+}
+.btn.btn-link {
+	@include theme-aware('color', 'link');
+}

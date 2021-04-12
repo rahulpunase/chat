@@ -1,23 +1,90 @@
-// light theme colors
+//=============LIGHT BLUE THEME COLORS=============//
+$l-b-primary:           #9fa6dd;
+$l-b-primary-dark:      #8f95c7;
+$l-b-primary-darker:    #7f85b1;
+$l-b-primary-30:        #bcc1e7;
+$l-b-primary-70:        #e2e4f5;
+$l-b-primary-80:        #ecedf8;
+$l-b-primary-bk:        #9ea2bc;
+$l-b-font:              #101116;
+$l-b-white:             #ffffff;
+
+
+//=============LIGHT GREEN THEME COLORS=============//
+$l-g-primary:      #9fddb4;
+$l-g-primary-dark: #8fc7a2;
+$l-g-primary-darker: #7fb190;
+$l-g-primary-30:   #bce7cb;
+$l-g-primary-70:   #e2f5e9;
+$l-g-primary-80:   #ecf8f0;
+$l-g-primary-bk:   #7fb190;
+$l-g-font:         #101612;
+$l-g-white:        #ffffff;
+
+//=============LIGHT REDDISH THEME COLORS=============//
+$l-r-primary:      #dd9fb6;
+$l-r-primary-dark: #c78fa4;
+$l-r-primary-30:   #e7bccc;
+$l-r-primary-70:   #e2f5e9;
+$l-r-primary-80:   #ecf8f0;
+$l-r-primary-bk:   #c78fa4;
+$l-r-font:         #101612;
+$l-r-white:        #ffffff;
+
+
+
+/*-----------------------Light theme colors-------------------*/
 $light-background-color: #D6D6D6;
 $light-background-home: #ffffff;
 $light-primary: #d9d7d7;
 $light-chat-central-color: #F0F2F6;
 $light-font-color: #202124;
 $light-border: 1px solid $light-primary;
+$light-form-bk-color: #9fa6dd;
+
+
+//messages colors
+$light-send-message-bk: #d1d3e3;
+$light-send-message-bk-tr: #d1d3e3cc;
+$light-send-message-dark-bk: #acaec1;
+$light-receive-message-bk: #fff;
+$light-message-border-rec-top: 22px solid $light-receive-message-bk;
+$light-message-border-rec-left: 16px solid $light-receive-message-bk;
+$light-message-border-send-right: 5px solid $light-send-message-bk;
+$light-message-border-send-top: 18px solid $light-send-message-bk;
 
 // light message theme
-$light-send-message-bk: #d1d3e3;
 $light-receive-message-bk: #fff;
 $light-send-message-box-shadow: 1px 1px 3px #cccccc;
 $light-receive-message-box-shadow: 1px 1px 3px #b9bbc8;
+/*-----------------------Light theme colors-------------------*/
 
 
-//dark theme colors
-$dark-background-color: #555555;
-$dark-background-home: #282828;
-$dark-chat-central-color: #F0F2F6;
-$dark-border: 1px solid $light-primary;
+/*-----------------------Dark theme colors-------------------*/
+$dark-background-color: #787777;
+$dark-background-home: #212121;
+$dark-primary: #757575;
+$dark-chat-central-color: #2f2f2f;
+$dark-font-color: #ffffff;
+$dark-border: 1px solid $dark-primary;
+$dark-form-bk-color: #b1b1b1;
+
+
+//messages colors
+$dark-send-message-bk: #cfcfcf;
+$dark-send-message-bk-tr: #cfcfcfcc;
+$dark-send-message-dark-bk: #b1b1b1;
+$dark-receive-message-bk: #fff;
+$dark-message-border-rec-top: 22px solid $dark-receive-message-bk;
+$dark-message-border-rec-left: 16px solid $dark-receive-message-bk;
+$dark-message-border-send-right: 5px solid $dark-send-message-bk;
+$dark-message-border-send-top: 18px solid $dark-send-message-bk;
+
+// dark message theme
+$dark-receive-message-bk: #fff;
+$dark-send-message-box-shadow: 1px 1px 3px #cccccc;
+$dark-receive-message-box-shadow: 1px 1px 3px #b9bbc8;
+/*-----------------------Dark theme colors-------------------*/
 
 
 

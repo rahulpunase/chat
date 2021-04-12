@@ -1,9 +1,21 @@
 @import "../../styles/mixin";
-.body-component {
+
+.body__component {
 	width: 100vw;
 	height: 100vh;
 	@include theme-aware('background-color', 'background-color');
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	.body-com-center {
+		width: 90%;
+		height: 90%;
+		@include theme-aware('background-color', 'background-home');
+		border-radius: $border-radius;
+		box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.2);
+		padding: 8px 0;
+		box-sizing: border-box;
+		position: relative;
+	}
 }

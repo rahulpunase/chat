@@ -1,12 +1,16 @@
 @import "../../styles/mixin";
+
 .message-panel {
 	width: 100%;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
 
 	.panel-header {
-		height: 60px;
+		min-height: 60px;
 		@include theme-aware('border-bottom', 'border')
 	}
+
 	.messages-container {
 		width: 100%;
 		height: calc(100% - 60px);
@@ -14,5 +18,22 @@
 		overflow-y: scroll;
 		display: flex;
 		flex-direction: column;
+		padding-bottom: 16px;
+		box-shadow: inset 0 0 28px 0 rgba(0, 0, 0, 0.15);
+		position: relative;
+		.dark-menu-holder {
+			position: absolute;
+			background: rgba(85, 85, 85, 0.67);
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+	}
+
+	.message-input-container {
+		width: 100%;
+		height: 80px;
+		@include theme-aware('border-color', 'hover-background');
 	}
 }
