@@ -4,15 +4,10 @@ import '../../../styles/_global.scss';
 import {Button, Container, Form, Row, Alert} from 'react-bootstrap';
 import utilMethods from "../../../utils/util.methods";
 import AccountService from "../../../services/account.service";
-import AuthStateActions from "../../../redux/reducers/authstate.action";
+import { AuthStateActions, checkUserLogin, _onLoading, _onLogin } from "../../../redux/reducers/auth-state-reducer/authState.action";
 import {useDispatch} from "react-redux";
 
 const RegisterNLogin = () => {
-	/*useEffect(() => {
-		return () => {
-			console.log('Gone');
-		}
-	}, [])*/
 	const loginState = {
 		login: true,
 		label: 'Login to Chat',
@@ -35,7 +30,6 @@ const RegisterNLogin = () => {
 	}
 	const [formState, setFormState] = useState(loginState);
 	const [keysWithErrors, setKeysWithErrors] = useState([]);
-	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [errorMessage, setErrorMessage] = useState('');
 	const [formController, setFormController] = useState(defFormController);
 	const dispatch = useDispatch();
@@ -63,23 +57,21 @@ const RegisterNLogin = () => {
 	const handleOnSubmit = (ev) => {
 		ev.preventDefault();
 		const accountService = new AccountService();
-		const authAction = new AuthStateActions();
-		dispatch(authAction._onLoading(true));
+		dispatch(_onLoading(true));
 		if (formState.login) {
 			accountService.login(formController.emailAddress, formController.password)
 				.then(response => {
 					const { success } = response;
 					if (success) {
 						localStorage.setItem(accountService.AUTH_KEY, response.result.token);
-						dispatch(authAction._onLogin(response.result.user));
+						dispatch(_onLogin(response.result.user));
 					} else {
 						setErrorMessage(response.error.errorMessage);
 					}
-					dispatch(authAction._onLoading(false));
+					dispatch(_onLoading(false));
 				})
 				.catch(error => {
-					console.log(error);
-					dispatch(authAction._onLoading(false));
+					dispatch(_onLoading(false));
 				});
 		} else {
 			accountService.register(formController)

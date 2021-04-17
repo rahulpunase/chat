@@ -8,7 +8,7 @@ const MessagesList = () => {
 	const messages = data;
 	return (
 		messages.map((message) => (
-			<div className="message-list-component">
+			<div className="message-list__component">
 				<MessageMenuAndContent message={message}/>
 			</div>
 		))

@@ -6,7 +6,7 @@ import MessageInput from "../message-input/message-input.component";
 
 const MessagePanel = () => {
 	return (
-		<div className="message-panel">
+		<div className="message-panel__component">
 			<div className="panel-header">
 				<div className="left-section">
 					<div className="pic"/>

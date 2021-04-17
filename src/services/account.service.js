@@ -11,7 +11,7 @@ export default class AccountService extends HttpClientService {
 		return this.postRequest('/account/createUser', data, true);
 	}
 
-	checkLogin = async () => {
-		return this.postRequest('/account/checkLogin', {});
+	checkLogin = () => {
+		return this.postRequest('/account/checkLogin', {})
 	}
 }

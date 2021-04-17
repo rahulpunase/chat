@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './home.scss';
 import ControlPanel from '../../components/control-panel/control-panel.component';
 import ChatNInformation from "../../components/chat-n-information/chat-n-information.component";
 import MessagePanel from "../../components/message-panel/message-panel.component";
+import {io} from "socket.io-client";
 
 const Home = () => {
+	useEffect(() => {
+		const socket = io('http://localhost:5000');
+		socket.connect();
+	}, []);
 	return (
 		<div className="home__component">
 			<div className="control-panel-holder">

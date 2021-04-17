@@ -15,3 +15,9 @@
 .btn.btn-link {
 	@include theme-aware('color', 'link');
 }
+
+.dropdown-menu {
+	font-family: Montserrat-Light, 'Segoe UI', 'Roboto', serif;
+	overflow: hidden;
+	@include theme-aware('border-color', 'primary-darker');
+}

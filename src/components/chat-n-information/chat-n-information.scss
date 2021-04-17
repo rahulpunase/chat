@@ -46,18 +46,24 @@
 				.profile-img {
 					height: 130px;
 					width: 130px;
-					background: red;
+					@include theme-aware('background-color', 'background-color');
 					border-radius: 50%;
-					position: relative;
+					text-align: center;
+					z-index: 1;
+					overflow: hidden;
+					.place-holder-image {
+						margin-top: 35px;
+					}
 
 					.status-circle {
 						width: 14px;
 						height: 14px;
 						border-radius: 50%;
 						background-color: greenyellow;
-						bottom: 16px;
+						bottom: 58px;
 						position: absolute;
-						right: 9px;
+						right: 94px;
+						z-index: 30;
 					}
 				}
 			}

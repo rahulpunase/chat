@@ -1,4 +1,6 @@
 import Axios from 'axios';
+import { _onLogout } from "../redux/reducers/auth-state-reducer/authState.action";
+import store from "../redux/store";
 
 export class HttpClientService {
 	SERVER_URL = 'http://localhost:5000';
@@ -22,6 +24,10 @@ export class HttpClientService {
 			).then(response => {
 				resolve(response.data);
 			}).catch(error => {
+				const { status } = error.response;
+				if (status === 403) {
+					store.dispatch(_onLogout());
+				}
 				reject(error);
 			});
 		});

@@ -2,27 +2,31 @@ import React, {useEffect} from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 import Home from "../../pages/home/home.page";
 import {useDispatch, useSelector} from "react-redux";
-import AuthStateActions from "../../redux/reducers/authstate.action";
+import { AuthStateUtils } from "../../redux/reducers/auth-state-reducer/authState.utils";
 import RegisterNLogin from "../account/registration-n-login/register-n-login.component";
+import {LoadingComponent} from "../loading/loading";
 
+const paths = {
+	empty: '/',
+	account: '/account',
+	people: '/people'
+}
 const Routers = () => {
 	const store = useSelector(storeState => storeState);
 	const dispatch = useDispatch();
 	const {authState} = store;
 	useEffect(() => {
-		const accountActions = new AuthStateActions();
-		dispatch(accountActions.checkUserLogin());
+		dispatch(AuthStateUtils.checkUserLogin());
 	}, []);
 	return (
 		<Router>
 			<Switch>
-				<Route path="/" exact={true} render={() => renderFunction(authState)}/>
-				<Route path="/home" exact={true}>
+				<Route path={paths.empty} exact={true} render={() => renderFunction(authState)}/>
+				<Route path={paths.people} exact={true}>
 					<ProtectedRoute authState={authState} component={<Home/>}/>
 				</Route>
-				<Route path="/account">
+				<Route path={paths.account}>
 					<PublicRoute authState={authState}/>
-					{/*<LoadingComponent/>*/}
 				</Route>}
 			</Switch>
 		</Router>
@@ -41,7 +45,8 @@ const ProtectedRoute = (props) => {
 
 const PrivateRouters = ({authState, component}) => {
 	return (
-		!authState.isLoggedIn ? <Redirect to={'/account'}/> : component
+		authState.checking ? <PlaceHolderLoading/> : !authState.isLoggedIn ?
+			<Redirect to={paths.account}/> : component
 	)
 }
 
@@ -49,7 +54,7 @@ const PublicRoute = ({authState}) => {
 	return (
 		<React.Fragment>
 			{
-				!authState.isLoggedIn ? <RegisterNLogin/> :<Redirect to={'/home'}/>
+				!authState.isLoggedIn ? <RegisterNLogin/> : <Redirect to={paths.people}/>
 			}
 		</React.Fragment>
 	)
@@ -58,9 +63,14 @@ const PublicRoute = ({authState}) => {
 const renderFunction = (authState) => {
 	return <React.Fragment>
 		{
-			<Redirect to={authState.isLoggedIn ? '/home' : '/account'}/>
+			authState.checking ? <PlaceHolderLoading/> :
+				<Redirect to={authState.isLoggedIn ? paths.people : paths.account}/>
 		}
 	</React.Fragment>
+}
+
+const PlaceHolderLoading = () => {
+	return <LoadingComponent placeholder={true} />
 }
 
 export default Routers;

@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "framer-motion": "^4.0.3",
+    "lodash": "^4.17.21",
     "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
@@ -21,6 +22,7 @@
     "react-scripts": "4.0.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "socket.io-client": "^4.0.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -46,5 +48,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

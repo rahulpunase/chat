@@ -1,66 +1,92 @@
-import React, {useEffect, useRef} from 'react';
-import data from "../data/conversation.data.js";
-import utilMethods from "../../utils/util.methods"
+import React, {useEffect, useState} from 'react';
 import "./conversation-list.scss";
 import "../../styles/_global.scss";
-import {motion} from "framer-motion";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faArchive, faTrash} from '@fortawesome/free-solid-svg-icons';
+import {ConversationUtils} from "../../redux/reducers/conversation-reducer/conversation.utils";
+import {useDispatch, useSelector} from "react-redux";
 
-const ConversationList = () => {
+
+const ConversationList = ({searchedList}) => {
+	const dispatch = useDispatch();
+	const store = useSelector(storeState => storeState);
+	const [people, setPeople] = useState(null);
+	const [localSearchedList, setLocalSearchedList] = useState(searchedList);
+	const {conversations} = store.conversationReducer;
 	useEffect(() => {
+		setLocalSearchedList(searchedList);
+	}, [searchedList])
 
-	})
-	const motionDiv = useRef({});
-	const conversation = data;
+	useEffect(() => {
+		dispatch(ConversationUtils.getActiveConversation());
+	}, []);
 
-	const handleOnDragEnd = (index, event, info) => {
-	};
+	const setConversationActive = (conversation) => {
+		dispatch(ConversationUtils.setConversationSelected(conversation));
+	}
+
+	useEffect(() => {
+		if (people) {
+			const findConversation = conversations.find(con => con.user._id === people._id);
+			dispatch(ConversationUtils.setConversationSelected(findConversation));
+			setLocalSearchedList([]);
+		}
+	}, [conversations.length]);
+
+	const setSearchedPeopleActive = (people) => {
+		setPeople(people);
+		dispatch(ConversationUtils.setPeopleSelected(people));
+		dispatch(ConversationUtils.getActiveConversation());
+	}
 
 	return (
-		conversation.map((con, index) => (
-			<div className="conversation-list-component" key={con._id}
-			     /*ref={(element) => motionDiv.current[index] = element}*/>
+		<React.Fragment>
+			{!localSearchedList.length && conversations.map((con, index) => (
+				<div className="conversation-list__component"
+				     key={con._id}
+				     onClick={() => setConversationActive(con)}
+				>
 				<div className="motion">
-					<motion.div
-						className="motion-div"
-						drag
-						dragConstraints={{
-							top: -0,
-							left: -50,
-							right: 50,
-							bottom: 0,
-						}}
-						onDrag={(event, info) => handleOnDragEnd(index, event, info)}
-					>
-						<div className="motion-swipe-to-del">
-							<div className="action">
-								<button className="gbl-ch-button">
-									<FontAwesomeIcon icon={faTrash}/>
-								</button>
-							</div>
-							<div className="conversation-list-element" key={con.index}>
-								<div className="container-elem">
-									<div className="pic">
-										<img src={con.picture}/>
-									</div>
-									<div className="details">
-										<div className="name">{con.name}</div>
-										<div className="message">{utilMethods.getSmallerString(con.message, 28)}</div>
-									</div>
-									<div className="time">11:30</div>
+					<div className="motion-swipe-to-del">
+						<div className={`conversation-list-element ${con._isSelected ? 'active' : ''}`}>
+							<div className="container-elem">
+								<div className="pic">
+									<img src={con.user.profilePicUrl}/>
 								</div>
-							</div>
-							<div className="action">
-								<button className="gbl-ch-button">
-									<FontAwesomeIcon icon={faArchive}/>
-								</button>
+								<div className="details">
+									<div className="name">{con.user.firstName} {con.user.lastName}</div>
+									{/*<div
+										className="message">{utilMethods.getSmallerString(con.lastMessage, 28)}</div>*/}
+								</div>
+								<div className="time">11:30</div>
 							</div>
 						</div>
-					</motion.div>
+					</div>
 				</div>
 			</div>
-		))
+			))}
+			{!!localSearchedList.length && <div className={"search-conversation-holder"}>
+				<div className="title">People</div>
+				{searchedList.map((people, index) => (
+					<div className="conversation-list__component"
+					     key={people._id}
+					     onClick={() => setSearchedPeopleActive(people)}>
+						<div className="motion">
+							<div className="motion-swipe-to-del">
+								<div className="conversation-list-element">
+									<div className="container-elem">
+									<div className="pic">
+										<img src={people.profilePicUrl}/>
+									</div>
+									<div className="details">
+										<div className="name">{people.firstName} {people.lastName}</div>
+									</div>
+								</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>}
+		</React.Fragment>
 	)
 }
 

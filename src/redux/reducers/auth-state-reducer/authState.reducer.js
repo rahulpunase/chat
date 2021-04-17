@@ -1,4 +1,4 @@
-import AuthStateActions from "./authstate.action";
+import { AuthStateActions } from "./authState.action";
 
 const defaultState = {
 	isLoggedIn: false,
@@ -6,10 +6,11 @@ const defaultState = {
 	redirectionRequired: false,
 	redirectionPath: '',
 	checking: true,
+	loading: false,
 };
 
 export const AuthStateReducer = (state = defaultState, action) => {
-	const { FAILURE, CHECK_LOGIN, LOADING } = new AuthStateActions().getActions();
+	const { FAILURE, CHECK_LOGIN, LOADING, LOGOUT } = AuthStateActions;
 	switch (action.type) {
 		case CHECK_LOGIN: {
 			return {
@@ -29,7 +30,14 @@ export const AuthStateReducer = (state = defaultState, action) => {
 		case LOADING: {
 			return {
 				...state,
-				checking: action.payload
+				loading: action.payload
+			}
+		}
+		case LOGOUT: {
+			return {
+				...state,
+				isLoggedIn: false,
+				user: null
 			}
 		}
 		default:
